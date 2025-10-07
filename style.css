@@ -65,6 +65,10 @@ ul.presentation-list li {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.video-block {
+  text-align: center;
+  margin: 20px 0;
+}
 
 /* Make it scales well on mobile */
 .video-block iframe {
@@ -86,6 +90,50 @@ ul.presentation-list li {
 
 .btn:hover {
   background-color: #005fa3;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.project-section {
+  margin: 40px 0;
+}
+.project-section h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+  color: #333;
+}
+.project-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  margin: 20px auto;
+}
+
+.workflow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.workflow img {
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+a.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: 500;
+}
+a.back-link:hover {
+  text-decoration: underline;
 }
 
 a {

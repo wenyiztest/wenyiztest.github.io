@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalvin - Visual-Inertia Calibration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p>What is Kalvin: KalVin consists of calibration setup (robot, calibration targets, fixtures, calibration station) and software
+      package that accepts IMU and video data andoutputs calibration parameters for DAQRI Smart Helmet and Smart Glasses
+  </header>
+
+  <main>
+    <!-- 1️⃣ Calibration Setup -->
+    <section class="project-section">
+      <h2>Kalvin Setup</h2>
+      <img src="images/kalcin_calibration_setup.png" alt="Calibration Setup" class="project-image">
+      <p>This setup consists of two major parts support calibrating the smart helmet or smart glasses: 1) inside a a robot cell with safety system, we have a kuka robot, calibration targets, fixtures, and 2) calibration station outside the cell.</p>
+    </section>
+
+    <!-- 2️⃣ Workflow -->
+    <section class="project-section">
+      <h2>Kalvin Workflow</h2>
+      <div class="workflow">
+        <img src="images/kalvin_calibration_workflow.png" alt="Calibration Workflow Diagram">
+        <p>The calibration pipeline follows 1) inspecting, putting helmet/glasses onto the kuka robot inside the robot cell, 2) run data capture and store onto helmet/glasses, 3) collect helmet/glasses from the robot cell, 4) run calibration calculation, 5) collect helmet for final QA inspection prior to shipping .</p>
+      </div>
+    </section>
+
+    <!-- 3️⃣ Demo Videos -->
+    <section class="project-section">
+      <h2>Demonstration Videos</h2>
+      <figure class="video-block">
+        <figcaption>Visual-Inertial Calibration in Action</figcaption>
+        <iframe
+          src="https://drive.google.com/file/d/19EtR3DLuW6DzX5He7RU5oetXiQgR56sY/preview"
+          allow="autoplay">
+        </iframe>
+      </figure>
+    </section>
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: KalVin</p>
+  </footer>
+</body>
+</html>
+
