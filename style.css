@@ -96,6 +96,14 @@ ul.presentation-list li {
   text-align: center;
   margin-bottom: 40px;
 }
+.project-profile-pic {
+  width: 100px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
 .project-section {
   margin: 40px 0;
 }
