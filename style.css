@@ -16,6 +16,16 @@ header {
   text-align: left;           /* Align text to the left */
 }
 
+/* the image never exceeds the container width (e.g., phone, tablet, desktop)
+the aspect ratio is preserved the image is centered */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
 .profile-pic {
   width: 150px;
   height: 150px;
@@ -97,8 +107,8 @@ ul.presentation-list li {
   margin-bottom: 40px;
 }
 .project-profile-pic {
-  width: 100px;
-  height: 80px;
+  width: 80px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
