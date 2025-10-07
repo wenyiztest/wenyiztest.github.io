@@ -3,42 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalvin - Visual-Inertia Calibration</title>
+  <title>VIN - Visual Inertia Navigation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <p>What is Kalvin: KalVin consists of calibration setup (robot, calibration targets, fixtures, calibration station) and software
-      package that accepts IMU and video data andoutputs calibration parameters for DAQRI Smart Helmet and Smart Glasses
+    <img src="images/DAQRI_SmartHelmet.jpg" alt="Smart Helmet Photo" width="80" heigh="auto">
+    <img src="images/DAQRI_SmartGlasses.jpg" alt="Smart Glasses Photo" width="90" heigh="auto">
+    <div>
+    <h1>What is VIN</h1>
+    <p>VIN is one kind of SLAM (simultaneous localization and mapping) software that integrate a camera and an IMU (applicable to multiple cameras and IMUs if
+      available), in order to achieve both 1) accurate, and 2) little delay that are both critical for Augmeneted Display.
+    </div>
+    </p>
   </header>
 
   <main>
-    <!-- 1️⃣ Calibration Setup -->
+    <!-- 1️⃣ Why Camera + IMU Setup -->
     <section class="project-section">
-      <h2>Kalvin Setup</h2>
-      <img src="images/kalcin_calibration_setup.png" alt="Calibration Setup" class="project-image">
-      <p>This setup consists of two major parts support calibrating the smart helmet or smart glasses: 1) inside a a robot cell with safety system, we have a kuka robot, calibration targets, fixtures, and 2) calibration station outside the cell.</p>
+      <h2>VIN Hardware Setup</h2>
+      <p>This setup consists of two major parts supporting the calibration of the smart helmet or smart glasses: 1) inside a robot cell with safety system, we have a kuka robot, calibration targets, fixtures, and 2) robot controller and calibration station outside the cell.</p>
+      <img src="images/kalvin_calibration_setup.png" alt="Calibration Setup" width="600" heigh="auto">
     </section>
 
-    <!-- 2️⃣ Workflow -->
+    <!-- 2️⃣ Early Demo of Working VIN -->
     <section class="project-section">
-      <h2>Kalvin Workflow</h2>
-      <div class="workflow">
-        <img src="images/kalvin_calibration_workflow.png" alt="Calibration Workflow Diagram">
-        <p>The calibration pipeline follows 1) inspecting, putting helmet/glasses onto the kuka robot inside the robot cell, 2) run data capture and store onto helmet/glasses, 3) collect helmet/glasses from the robot cell, 4) run calibration calculation, 5) collect helmet for final QA inspection prior to shipping .</p>
-      </div>
-    </section>
-
-    <!-- 3️⃣ Demo Videos -->
-    <section class="project-section">
-      <h2>Demonstration Videos</h2>
-      <figure class="video-block">
-        <figcaption>Visual-Inertial Calibration in Action</figcaption>
+      <h2>Early Demo of VIN working in DAQRI's office</h2>
+      <p>It is working after months & years of hardworking teams including software engineers, algorighthm developpers, FPGA
+        engineers, electrical engineers, mechanical engineers, and calibration engineers.
+      </p>
+        <figcaption>Early Demo of Working VIN</figcaption>
         <iframe
-          src="https://drive.google.com/file/d/19EtR3DLuW6DzX5He7RU5oetXiQgR56sY/preview"
+          src="https://drive.google.com/file/d/1qKplG_UikBHcrCIgklhddM__LyRkI6hV/preview"
           allow="autoplay">
         </iframe>
-      </figure>
+    </section>
+
+
+    <!-- 3️⃣ Talk about Real-time VIN at Embedded Alliance -->
+    <section class="project-section">
+      <h2>Talk given at Embedded Vision Alliance Meeting</h2>
+      <p>This is a presentation I gave at an Embedded Vision Alliance meeting on real-time VIN and why it enables AR for industrial applications DAQRI was tryig to build.
+      </p>
+        <figcaption>VIN-AR for Industrial Applications at DAQRI</figcaption>
+        <iframe
+          src="https://www.youtube.com/watch?v=5Y6PRN5q6R8"
+          allow="autoplay">
+        </iframe>
     </section>
 
     <!-- 🔙 Back to main site -->
@@ -48,7 +59,7 @@
   </main>
 
   <footer>
-    <p>© 2025 Wenyi Zhao | Project: KalVin</p>
+    <p>© 2025 Wenyi Zhao | Project: Vin</p>
   </footer>
 </body>
 </html>
