@@ -12,18 +12,28 @@
     <img src="images/DAQRI_SmartGlasses.jpg" alt="Smart Glasses Photo" width="90" heigh="auto">
     <div>
     <h1>What is VIN</h1>
-    <p>VIN is one kind of SLAM (simultaneous localization and mapping) software that integrate a camera and an IMU (applicable to multiple cameras and IMUs if
-      available), in order to achieve both 1) accurate, and 2) little delay that are both critical for Augmeneted Display.
+    <p>VIN is a type of Simultaneous Localization And Mapping (SLAM) designed for real-time performance and accurate state
+      information without loop closure. This makes it perfect for applications such as content rendering for Augmented Reality
+      (AR) and real-time positioning in GPS-denied environments, whether it is indoor or outdoor. An optimized VIN system can
+      run at video frame rate, typically, 60hz. With an IMU (Inertial Measurement Unit) of much higher data rate, typically,
+      1000hz, accurate state information can be obtained with minimal latency for AR rendering.
     </div>
     </p>
   </header>
 
   <main>
-    <!-- 1️⃣ Why Camera + IMU Setup -->
+    <!-- 1️⃣ VIN Key Modules -->
     <section class="project-section">
-      <h2>VIN Hardware Setup</h2>
-      <p>This setup consists of two major parts supporting the calibration of the smart helmet or smart glasses: 1) inside a robot cell with safety system, we have a kuka robot, calibration targets, fixtures, and 2) robot controller and calibration station outside the cell.</p>
-      <img src="images/kalvin_calibration_setup.png" alt="Calibration Setup" width="600" heigh="auto">
+      <h2>Major Components of VIN</h2>
+      <p>VIN uses an Extended Kalman Filter (EKF) framework to do the state estimation. As
+        part of this framework, VIN tracks natural features (Feature Tracking box) in the environment across multiple camera frames while removing outlying features
+        (Outlier Rejection box) that do not satisfy certain conditions. The feature correspondences are used to compute the 3D positions of each feature (Triangulation
+        box) which serve to constrain the relative camera (or IMU) poses across multiple frames through minimization of the
+        reprojection error (EKF-Update box). IMU data is used to further constrain the camera poses by predicting the expected
+        camera pose from one frame to the next (EKF-Prediction box). Other major components of the VIN include detecting and
+        tracking landmarks in the world (Landmark Recognition box); selecting distinctive camera frames (Keyframe Selection box);
+        and augmentation of the EKF state (EKF-Augmentation box).
+      <img src="images/VIN_EKF-KeyModules.png" alt="Calibration Setup" width="600" heigh="auto">
     </section>
 
     <!-- 2️⃣ Early Demo of Working VIN -->
