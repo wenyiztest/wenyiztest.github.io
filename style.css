@@ -174,11 +174,13 @@ footer {
 .image-grid {
   display: flex;
   flex-direction: column;
-  align-items: stretch;    /* Images will stretch the full width */
+  align-items: center; /* Center images */
   gap: 1em;
-  width: 100vw;            /* Full viewport width */
+  max-width: 100vw;  /* Full viewport width or less */
+  width: 100%;      /* shrink on smaller screens. */
   margin: 0;
   padding: 0;
+  margin: 0 auto;
 }
 
 /* Each figure is treated as a flexible item */
@@ -189,8 +191,8 @@ footer {
 
 /* Ensures consistent width for all images */
 .image-grid img {
-  width: 100vw;            /* 100% of viewport width */
-  min-width: 100vw;
+  width: 100%;       /* Make image's width fill its container */
+  max-width: 100%;   /* Never grow larger than container or original */
   height: auto;
-  display: block;
+  display: block;   /* Remove whitespace below images */
 }
