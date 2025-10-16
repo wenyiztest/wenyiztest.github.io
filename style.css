@@ -170,30 +170,28 @@ footer {
   color: #555;
 }
 
-/* Styles for the grid container */
+/* Style the container for the images */
 .image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
-  gap: 20px; /* Adds space between grid items */
+  display: flex;
+  flex-direction: column;  /* Stack vertically */
+  align-items: center;
+  gap: 1em;                  /* Add space between figures */
+  max-width: 420px;
+  margin: 0 auto;
 }
 
-/* Styles for the individual images and captions */
+/* Each figure is treated as a flexible item */
 .image-grid figure {
-  margin: 0; /* Remove default margins from the figure element */
-  text-align: center; /* Center the image caption */
+  flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
+  /* flex-basis: 200px ensures each item has a minimum width of 200px,
+  but it will grow and shrink to fill available space */
+  margin: 0; /* Remove default figure margin */
 }
 
-/* Styles for the images inside the grid */
+/* Ensures consistent width for all images */
 .image-grid img {
-  max-width: 100%; /* Ensures images don't overflow their columns */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Removes extra space below images */
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
 }
-
-/* Responsive adjustment for smaller screens */
-@media (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: 1fr; /* Change to a single column on mobile devices */
-  }
-}
-
