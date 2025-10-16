@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scout - Portable Vital Sign Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/SCANADU_scout_indiegogo.jpg" alt="Smart Helmet Photo" width="160" heigh="auto">
+    <div>
+    <h1>What is Scout</h1>
+    <p>Inspired by the tricorder from {\em Star Trek} according to Scandu's founder Walter De Brouwer,
+      Scanadu Scout is a bold project aiming to change the status quo in personal healthcare through
+      mobile tools beyond thermometer. It went through an Indegigo crowd-funding to validate the
+      concept and to fund the product prototype building.
+
+      Scout is a pocket-sized device that, when held to the forehead, was envisioned to measure four physiologic
+      parameters: heart rate, blood pressure, body surface temperature and oxygen saturation through pulse
+      oximetry. In practice, it is tricky to provide robust, consistent and accurate measurement for parameters such
+      as blood measure, by non-professionals at home using a simple multi-functional device.
+
+      It was a unique experience for me to work with the passionate and hard-working people (everyone is an entrepreneur) in
+      order to achieve such an inspirational goal. Like many working in a startup, I have been leading the Scout Product Design & Development
+      and Managing Contract Manufactures and Supply Chain, personsally developping algorithms focused on sensor fusion & user interaction,
+      and preparing Scout patents for IP protection.
+    </p>
+  </header>
+
+  <main>
+    <!-- 1️⃣ Scout Hardware and Manufacturing -->
+    <section class="project-section">
+      <h2>Scout - Pocke-sized Device</h2>
+      <p>
+      <figcaption>Early Version Scout</figcaption>
+      <img src="images/SCANADU_scout_board.jpg" alt="Early Scout PCB" width="600" heigh="auto">
+
+      <figcaption>Scout Debugging</figcaption>
+      <img src="images/SCANADU_scout_diagnostic.jpg" alt="Debugging Scout" width="600" heigh="auto">
+
+      <figcaption>Scout Team at Work</figcaption>
+      <img src="images/SCANADU_scoutteam@work.jpg" alt="Scout Team at Work" width="600" heigh="auto">
+
+      <figcaption>Scout CM Sparqtron</figcaption>
+      <img src="images/SCANADU_CMSignOff_Sparqtron.jpg" alt="Scout CM SignOff at Sparqtron" width="600" heigh="auto">
+
+      <figcaption>Scout 1st Edition</figcaption>
+      <img src="images/SCANADU_scout.jpg" alt="1st Edition Scout" width="600" heigh="auto">
+      </p>
+    </section>
+
+    <!-- 2️⃣ Scout Algorithms & Phone Software -->
+    <section class="project-section">
+      <h2>Scout - Algorithms & Software</h2>
+      <p>There are muitple sensors integrated into the small scout device: IR Thermometer, reflective Pulse Oximeter (PPG),
+        single-LEAD ECG, 3-axis accelerometer, and MEMS microphone. Naturally you want to utilize all these
+        sensors for robust and accurate estimation of key parameters such as respiration rate, blood pressure.
+
+        Cuffless BP (blood pressure) algorithm: One core concept of cuffless BP algorithms is based on pulse transit time  (PTT) or pulse wave transit
+        time (PWTT).  Though PTT has been demonstrated to be highly correlated with systolic BP, it is also known that other physiological
+        parameters such as age, weight, and height play an important role in converting PTT into BP measurement. For PWTT based BP
+        estimation, we utilize timings of the R peak of ECG and maximal change of PPG.
+
+        Scout Data Capture Quality Check: For accurate parameter estimation, Scout needs to collect high-quality data. But allowing
+        for Scout to be used by non-professional at home posed a significant challenge. To counter this challenge, we proposed a fusion
+        algorithm to utilize all sensors to provide quality feedback to users, for example, No Touch, Hard Touch, Talking Head, and
+        Good Data.
+
+        Phone User Interface: Scout utilizes a mobile phone after wirelesss-pairing to provide user interface.
+        <figcaption>Scout's Mobile Phone User Interface</figcaption>
+        <img src="images/SCANADU_Scout_Scan_Screen.png" alt="Scout Phone User Interface" width="600" heigh="auto">
+      </p>
+    </section>
+
+    <!-- 1️⃣ Usability Study -->
+    <h2> Published Scout Usability Study</h2>
+    <p>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/30990860/">Real world usage characteristics of a novel mobile health self-monitoring device:
+        Results from the Scanadu Consumer Health Outcomes (SCOUT) Study </a>
+      A wide range of personal wireless health-related sensor devices are being developed with
+      hope of improving health management. Factors related to effective user engagement, how-
+      ever, are not well-known. We sought to identify factors associated with consistent long-term
+      use of the Scanadu Scout multi-parameter vital sign monitor among individuals who
+      invested in the device through a crowd-funding campaign. Email invitations to join the study
+      were sent to 4525 crowd-funding participants from the US. Those completing a baseline sur-
+      vey were sent a device with follow-up surveys at 3, 12, and 18 months. Of 3872 participants
+      receiving a device, 3473 used it during Week 1, decreasing to 1633 (47 percent) in Week 2.
+      Median time from first use of the device to last use was 17 weeks (IQR: 5–51 weeks) and
+      median uses per week was 1.0 (IQR: 0.6–2.0). Consistent long-term use (defined as
+      remaining in the study at least 26 weeks with at least 3 recordings per week during at least
+      80% of weeks) was associated with older age, not having children in the household, and fre-
+      quent use of other medical devices. In the subset of participants answering the 12-month
+      survey (n = 1222), consistent long-term users were more likely to consider the device easy
+      to use and to share results with a healthcare provider. Thirty percent of this subset overall
+      reported improved diet or exercise habits and 25 percent considered medication changes in
+      response to device results. The study shows that even among investors in a device, fre-
+      quency of device usage fell off rapidly. Understanding how to improve the value of informa-
+      tion from personal health-related sensors will be critical to their successful implementation
+      in care.
+    </p>
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Scout</p>
+  </footer>
+</body>
+</html>
+
