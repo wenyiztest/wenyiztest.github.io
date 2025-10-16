@@ -8,46 +8,59 @@
 </head>
 <body>
   <header>
-    <img src="images/SCANADU_scout_indiegogo.jpg" alt="Smart Helmet Photo" width="160" heigh="auto">
+    <img src="images/SCANADU_scout_indiegogo.jpg" alt="Smart Helmet Photo" width="220" heigh="auto">
     <div>
     <h1>What is Scout</h1>
-    <p>Inspired by the tricorder from {\em Star Trek} according to Scandu's founder Walter De Brouwer,
+    <p>Inspired by the tricorder from <strong>Star Trek</strong> according to Scandu's founder Walter De Brouwer,
       Scanadu Scout is a bold project aiming to change the status quo in personal healthcare through
       mobile tools beyond thermometer. It went through an Indegigo crowd-funding to validate the
-      concept and to fund the product prototype building.
+      concept and to fund the product prototype building.</p>
 
+      <p>
       Scout is a pocket-sized device that, when held to the forehead, was envisioned to measure four physiologic
       parameters: heart rate, blood pressure, body surface temperature and oxygen saturation through pulse
       oximetry. In practice, it is tricky to provide robust, consistent and accurate measurement for parameters such
-      as blood measure, by non-professionals at home using a simple multi-functional device.
+      as blood measure, by non-professionals at home using a simple multi-functional device.</p>
 
+      <p>
       It was a unique experience for me to work with the passionate and hard-working people (everyone is an entrepreneur) in
       order to achieve such an inspirational goal. Like many working in a startup, I have been leading the Scout Product Design & Development
       and Managing Contract Manufactures and Supply Chain, personsally developping algorithms focused on sensor fusion & user interaction,
-      and preparing Scout patents for IP protection.
-    </p>
+      and preparing Scout patents for IP protection.</p>
   </header>
 
   <main>
     <!-- 1️⃣ Scout Hardware and Manufacturing -->
     <section class="project-section">
       <h2>Scout - Pocke-sized Device</h2>
-      <p>
-      <figcaption>Early Version Scout</figcaption>
-      <img src="images/SCANADU_scout_board.jpg" alt="Early Scout PCB" width="600" heigh="auto">
+      <p>The scout team worked very hard to protype/build fast with iterations and debugging issues.
+        Then you reached the stage of finalizing all the suppliers and a CM (contract manufacture)
+        to make device called Scout 1st Edition.</p>
+      <div class="image-grid">
+        <figure>
+          <figcaption>Early Version Scout</figcaption>
+          <img src="images/SCANADU_scout_board.jpg" alt="Early Scout PCB">
+        </figure>
 
-      <figcaption>Scout Debugging</figcaption>
-      <img src="images/SCANADU_scout_diagnostic.jpg" alt="Debugging Scout" width="600" heigh="auto">
+        <figure>
+          <figcaption>Scout Debugging</figcaption>
+          <img src="images/SCANADU_scout_diagnostic.jpg" alt="Debugging Scout">
+        </figure>
 
-      <figcaption>Scout Team at Work</figcaption>
-      <img src="images/SCANADU_scoutteam@work.jpg" alt="Scout Team at Work" width="600" heigh="auto">
+        <figure>
+          <figcaption>Scout Team at Work</figcaption>
+          <img src="images/SCANADU_scoutteam@work.jpg" alt="Scout Team at Work">
+        </figure>
 
-      <figcaption>Scout CM Sparqtron</figcaption>
-      <img src="images/SCANADU_CMSignOff_Sparqtron.jpg" alt="Scout CM SignOff at Sparqtron" width="600" heigh="auto">
+        <figure>
+          <figcaption>Scout CM Sparqtron</figcaption>
+          <img src="images/SCANADU_CMSignOff_Sparqtron.jpg" alt="Scout CM SignOff at Sparqtron">
+        </figure>
 
-      <figcaption>Scout 1st Edition</figcaption>
-      <img src="images/SCANADU_scout.jpg" alt="1st Edition Scout" width="600" heigh="auto">
-      </p>
+        <figure>
+          <figcaption>Scout 1st Edition</figcaption>
+          <img src="images/SCANADU_scout.jpg" alt="1st Edition Scout">
+        </figure>
     </section>
 
     <!-- 2️⃣ Scout Algorithms & Phone Software -->
@@ -55,28 +68,35 @@
       <h2>Scout - Algorithms & Software</h2>
       <p>There are muitple sensors integrated into the small scout device: IR Thermometer, reflective Pulse Oximeter (PPG),
         single-LEAD ECG, 3-axis accelerometer, and MEMS microphone. Naturally you want to utilize all these
-        sensors for robust and accurate estimation of key parameters such as respiration rate, blood pressure.
+        sensors for robust and accurate estimation of key parameters such as respiration rate, blood pressure.</p>
 
-        Cuffless BP (blood pressure) algorithm: One core concept of cuffless BP algorithms is based on pulse transit time  (PTT) or pulse wave transit
+        <p>Cuffless BP (blood pressure) algorithm: One core concept of cuffless BP algorithms is based on pulse transit time  (PTT) or pulse wave transit
         time (PWTT).  Though PTT has been demonstrated to be highly correlated with systolic BP, it is also known that other physiological
         parameters such as age, weight, and height play an important role in converting PTT into BP measurement. For PWTT based BP
-        estimation, we utilize timings of the R peak of ECG and maximal change of PPG.
+        estimation, we utilize timings of the R peak of ECG and maximal change of PPG.</p>
 
-        Scout Data Capture Quality Check: For accurate parameter estimation, Scout needs to collect high-quality data. But allowing
+        <p>Scout Data Capture Quality Check: For accurate parameter estimation, Scout needs to collect high-quality data. But allowing
         for Scout to be used by non-professional at home posed a significant challenge. To counter this challenge, we proposed a fusion
         algorithm to utilize all sensors to provide quality feedback to users, for example, No Touch, Hard Touch, Talking Head, and
         Good Data.
+        <figcaption>Scout's Data Capture Quality Check</figcaption>
+        <a href="https://patents.google.com/patent/US11090003B2/en?oq=US+11090003+B2">
+        <img src="images/SCANADU_scout_fusion_dataquality.jpg" alt="Scout Fusion for Improved Data Quality from Patent" width="600" heigh="auto">
+        </a>
+        </p>
 
-        Phone User Interface: Scout utilizes a mobile phone after wirelesss-pairing to provide user interface.
+        <p>Phone User Interface: Scout utilizes a mobile phone after wirelesss-pairing to provide user interface.
         <figcaption>Scout's Mobile Phone User Interface</figcaption>
-        <img src="images/SCANADU_Scout_Scan_Screen.png" alt="Scout Phone User Interface" width="600" heigh="auto">
-      </p>
+        <a href="https://patents.google.com/patent/US9808206B1/en?oq=US+9808206+B1">
+        <img src="images/SCANADU_Scout_Scan_Screen.png" alt="Scout Phone User Interface from Patent" width="600" heigh="auto">
+        </a>
+        </p>
     </section>
 
     <!-- 1️⃣ Usability Study -->
-    <h2> Published Scout Usability Study</h2>
-    <p>
-      <a href="https://pubmed.ncbi.nlm.nih.gov/30990860/">Real world usage characteristics of a novel mobile health self-monitoring device:
+    <section class="project-section">
+      <h2> Published Scout Usability Study</h2>
+      <p><a href="https://pubmed.ncbi.nlm.nih.gov/30990860/">Real world usage characteristics of a novel mobile health self-monitoring device:
         Results from the Scanadu Consumer Health Outcomes (SCOUT) Study </a>
       A wide range of personal wireless health-related sensor devices are being developed with
       hope of improving health management. Factors related to effective user engagement, how-
@@ -99,6 +119,8 @@
       tion from personal health-related sensors will be critical to their successful implementation
       in care.
     </p>
+    </section>
+
     <!-- 🔙 Back to main site -->
     <div style="text-align: center;">
       <a href="../../index.html" class="back-link">&larr; Back to Home</a>

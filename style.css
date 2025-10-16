@@ -170,3 +170,30 @@ footer {
   color: #555;
 }
 
+/* Styles for the grid container */
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+  gap: 20px; /* Adds space between grid items */
+}
+
+/* Styles for the individual images and captions */
+.image-grid figure {
+  margin: 0; /* Remove default margins from the figure element */
+  text-align: center; /* Center the image caption */
+}
+
+/* Styles for the images inside the grid */
+.image-grid img {
+  max-width: 100%; /* Ensures images don't overflow their columns */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes extra space below images */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr; /* Change to a single column on mobile devices */
+  }
+}
+
