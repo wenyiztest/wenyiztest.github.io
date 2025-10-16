@@ -183,16 +183,14 @@ footer {
 
 /* Each figure is treated as a flexible item */
 .image-grid figure {
-  flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
-  /* flex-basis: 200px ensures each item has a minimum width of 200px,
-  but it will grow and shrink to fill available space */
-  margin: 0; /* Remove default figure margin */
+  width: 100%;
+  margin: 0;
 }
 
 /* Ensures consistent width for all images */
 .image-grid img {
-  width: 100%;
-  max-width: 420px;
+  width: 100vw;            /* 100% of viewport width */
+  min-width: 100vw;
   height: auto;
   display: block;
 }
