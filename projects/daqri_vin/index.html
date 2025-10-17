@@ -23,46 +23,40 @@
 
   <main>
     <!-- 1️⃣ VIN Key Modules -->
-    <section class="project-section">
-      <h2>Major Components of VIN</h2>
-      <p>VIN uses an Extended Kalman Filter (EKF) framework to do the state estimation. As
-        part of this framework, VIN tracks natural features (Feature Tracking box) in the environment across multiple camera frames while removing outlying features
-        (Outlier Rejection box) that do not satisfy certain conditions. The feature correspondences are used to compute the 3D positions of each feature (Triangulation
-        box) which serve to constrain the relative camera (or IMU) poses across multiple frames through minimization of the
-        reprojection error (EKF-Update box). IMU data is used to further constrain the camera poses by predicting the expected
-        camera pose from one frame to the next (EKF-Prediction box). Other major components of the VIN include detecting and
-        tracking landmarks in the world (Landmark Recognition box); selecting distinctive camera frames (Keyframe Selection box);
-        and augmentation of the EKF state (EKF-Augmentation box).
-      <img src="images/VIN_EKF-KeyModules.png" alt="Calibration Setup" width="600" heigh="auto">
-    </section>
+    <h2>Major Components of VIN</h2>
+    <p>VIN uses an Extended Kalman Filter (EKF) framework to do the state estimation. As
+      part of this framework, VIN tracks natural features (Feature Tracking box) in the environment across multiple camera frames while removing outlying features
+      (Outlier Rejection box) that do not satisfy certain conditions. The feature correspondences are used to compute the 3D positions of each feature (Triangulation
+      box) which serve to constrain the relative camera (or IMU) poses across multiple frames through minimization of the
+      reprojection error (EKF-Update box). IMU data is used to further constrain the camera poses by predicting the expected
+      camera pose from one frame to the next (EKF-Prediction box). Other major components of the VIN include detecting and
+      tracking landmarks in the world (Landmark Recognition box); selecting distinctive camera frames (Keyframe Selection box);
+      and augmentation of the EKF state (EKF-Augmentation box).
+    <img src="images/VIN_EKF-KeyModules.png" alt="Calibration Setup" width="600" heigh="auto">
+    </p>
 
     <!-- 2️⃣ Early Demo of Working VIN -->
-    <section class="project-section">
-      <h2>Early Demo of VIN working in DAQRI's office</h2>
-      <p>It is working after months & years of hardworking teams including software engineers, algorighthm developpers, FPGA
-        engineers, electrical engineers, mechanical engineers, and calibration engineers.
-      </p>
-        <figcaption>Early Demo of Working VIN</figcaption>
-        <iframe
-          src="https://drive.google.com/file/d/1qKplG_UikBHcrCIgklhddM__LyRkI6hV/preview"
-          allow="autoplay">
-        </iframe>
-    </section>
-
+    <h2>Early Demo of VIN working in DAQRI's office</h2>
+    <p>It is working after months & years of hardworking teams including software engineers, algorighthm developpers, FPGA
+      engineers, electrical engineers, mechanical engineers, and calibration engineers.
+    </p>
+    <figcaption>Early Demo of Working VIN</figcaption>
+    <iframe
+      src="https://drive.google.com/file/d/1qKplG_UikBHcrCIgklhddM__LyRkI6hV/preview"
+      allow="autoplay">
+    </iframe>
 
     <!-- 3️⃣ Talk about Real-time VIN at Embedded Alliance -->
-    <section class="project-section">
-      <h2>Talk given at Embedded Vision Alliance Meeting</h2>
-      <p>This is a presentation I gave at an Embedded Vision Alliance meeting on real-time VIN and why it enables AR for industrial applications DAQRI was tryig to build.
-      </p>
-        <figcaption>VIN-AR for Industrial Applications at DAQRI</figcaption>
-        <iframe
-          src="https://www.youtube.com/embed/5Y6PRN5q6R8"
-          allow="autoplay">
-        </iframe>
-    </section>
+    <h2>Talk given at Embedded Vision Alliance Meeting</h2>
+    <p>This is a presentation I gave at an Embedded Vision Alliance meeting on real-time VIN and why it enables AR for industrial applications DAQRI was tryig to build.
+    </p>
+    <figcaption>VIN-AR for Industrial Applications at DAQRI</figcaption>
+    <iframe
+      src="https://www.youtube.com/embed/5Y6PRN5q6R8"
+      allow="autoplay">
+    </iframe>
 
-    <!-- 🔙 Back to main site -->
+      <!-- 🔙 Back to main site -->
     <div style="text-align: center;">
       <a href="../../index.html" class="back-link">&larr; Back to Home</a>
     </div>
