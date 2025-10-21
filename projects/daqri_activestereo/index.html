@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Stereo - Building from Ground Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/DAQRI_SmartHelmet.jpg" alt="Smart Helmet Photo" width="80" heigh="auto">
+    <img src="images/DAQRI_SmartGlasses.jpg" alt="Smart Glasses Photo" width="90" heigh="auto">
+    <h1>What is Active Stereo</h1>
+    <p>Active stereo is a technique used in computer vision and depth sensing where two (or more) cameras are
+      paired with an active illumination source, such as an infrared (IR) projector. Different from traditional
+      passive stereo, the projector projects a known pattern onto the scene, which helps the cameras solve correspondence problems even when the
+      environment lacks texture or lighting contrast — yielding more reliable depth maps. Well-known active stereo
+      systems include Intel's Real Sense. Compared to ToF (Time-of-Flight) sensors such as Microsft's Kinect 2, active
+      stereo cameras also provide good quality images for purposes beyond depth such as object detection and
+      tracking.
+    </p>
+  </header>
+
+  <main>
+    <!-- 1️⃣ Active Key Modules -->
+    <h2>Building active stereo vision system - from ground up with camera sensors and laser illumination</h2>
+    <p>For camera sensor, we choose MT9M021, a 1.2MP, 1/3" global shuter CMOS sensor from Aptive based on its
+      excellent pixel performance and small formfactor.</p>
+
+
+    <h2>Building Camera Module - 3rd Party Partner</h2>
+    <p>To built an actual camera module that be integrated into active stereo or another vision systems,
+      we worked with Leopard Imaging, a camera module provider that also supports building your own camera modules
+      from ground up.</p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/camera_AptivMT9M021gluelensmount.jpg" alt="Glue Lens to Camera Sensor">
+        <figcaption>Glue Lens to Camera Sensor</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/camera_boardmolexcable.jpg" alt="Camera Module Connected to Board via Molex cable">
+        <figcaption>Camera Module Connected to Board via Molex cable</figcaption>
+      </figure>
+    </div>
+
+    <h2>VECSEL - choosing the right illuminaton</h2>
+    <p>The adoption of VECSEL (Vertical-Cavity Surface-Emitting Laser) into consumer devices is popular today, for
+      example, into apple's iPhone for Face ID. Back in 2014-15, after researching I learnd its unique advantages
+      including being compact & efficient, uniform & speckle-Reduced IR Projection of high-density patterns. But
+      finding a good supplier is a challenge. Fortunately, I was connected to a startup CEO who used to work at
+      Sarnoff. He agreed to work with us for potentially being part of an even bigger and exciting Smart Helmet
+      project.</p>
+      <div class="image-grid">
+        <figure>
+          <img src="images/VECSEL_sample.jpg" alt="Tiny yet powerful VECSEL">
+          <figcaption>The tiny yet powerful VECSEL is here!</figcaption>
+        </figure>
+      </div>
+
+      <h2>Active Stereo Vision System Prototype - 3D Printer and Glue</h2>
+      <p>To quickly test your idea, you need to protype HW quickly and build SW to run on it.
+        With the recent advancement of 3D printers, this becomes fairly easy.</p>
+        <div class="image-grid">
+          <figure>
+            <img src="images/activestereo_gluedprototype.jpg" alt="Active Stereo Vision System Prototype">
+            <figcaption>Active Stereo Vision System Prototype</figcaption>
+          </figure>
+
+          <figure>
+            <img src="images/activestereo_prototypebenchtop.jpg" alt="Firing up the Benchtop Prototype">
+            <figcaption>Firing up the benchtop protyope </figcaption>
+          </figure>
+        </div>
+
+    <!-- 2️⃣ Early Demo of Working Active Stereo -->
+    <h2>Early Demos of Active Stereo</h2>
+    <p>To trully appreciate the power of VECSEL as effective illumination, we started running active stereo
+      indoor with sunlight passing-in and shinning surface. And eventually move outdoors for testing. Suffice to say,
+      VECSEL did not disappoint.</p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/activestereo_rawimgVECSEL.jpg" alt="Raw image with VECSEL on">
+        <figcaption>Raw image with VECSEL on</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/aactivestereo_testingoutdoors.jpg" alt="Testing the VECSEL power outdoors">
+        <figcaption>Testing the VECSEL power outdoors</figcaption>
+      </figure>
+    </div>
+
+      <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Active Stereo</p>
+  </footer>
+</body>
+</html>
+
