@@ -22,49 +22,66 @@
       Spectrum-selected surgical imaging, 2) Single-chip multi-function imaging including Firefly imaging with ICG,
       and 3) High-speed sequential multi-function imaging. These efforts involved researching ideas, building prototypes, showing live
       demos to stakeholders and executives, and filing patents.</p>
-
-      <p>
-      To effectively evalute any design and algorithms proposed, I built a pipeline to simulate proposed hardware and evaluate
-      algorithms on real surgical videos by surgeons: 1)reference surgical videos were captured in labs by a capture system I built based on RAID (redudant
-      array of independent disks) to handle real-time (60fps), dual channel (stero), high-quality (1080p) videos, 2) Synthesize video based
-      on proposed hardware, for example, different CFA design, 3) Apply algorithms to process synthesized video off-line, 4) Pipe the processed
-      videos and original video in real-time to a daVinci console for surgeons to view and compare.
-      </p>
     </div>
   </header>
 
   <main>
+    <!-- The Evaluation Pipeline  -->
+    <h2>Building The Evaluation Pipeline - System Engineering</h2>
+    <p>Before I described a few efforts for this project, I wanted to mention this infrastructure effort that is
+    critical to make sure all efforts are succesful validated by surgeons. This is the start of my training on spot
+    for system engineering out of the need to bridge the huge gap between engineers and surgeons.</p>
+
+    <p>
+    To effectively evalute any design and algorithms proposed, I built a pipeline to simulate proposed hardware and evaluate
+    algorithms on real surgical videos by surgeons: 1)reference surgical videos were captured in labs by a capture
+    system I built based on a) Matrox Orion capture cards, and b) RAID (redudant array of independent disks), in order
+    to handle real-time (60fps), synchronous dual-channel (stereo-left and stereo-right), high-quality (1080p) videos,
+    2) Synthesize video based on proposed hardware, for example, different CFA designs, 3) Apply algorithms to process
+    huge-amount of synthesized video off-line, 4) Pipe the processed videos and original video in real-time to a
+    daVinci console for surgeons to view and compare.
+    </p>
+
+    <div class="image-grid">
+      <figure>
+        <img src="images/SurgicalVideo_EvaulationPipeline.jpg" alt="Evaluation Pipeline">
+        <figcaption>Evaulation pipeline with surgeons as the evaulators. Reference video was captured in Labs and video synthesis and processing could happen
+          off-line.</figcaption>
+      </figure>
+    </div>
+
     <!-- Spectrum-selected surgical Imaging -->
     <h2>Spectrum-selected Surgical Imaging - translucent soft tissue</h2>
-    <p>It was well known that to creat a proper color image of a scene, a image sensor collects three spectrums, Red (centered around 630nm), Green (centered around
-    530) and Blue (460nm).  It was also known that accurate/authentic, color in surgical imaging is critical because it
-    allows surgeons to assess tissue oxygenation and viability, which directly impacts patient safety and surgical outcomes.
-    For example, the appearance of a bluish hue, known as <a href: https://medlineplus.gov/ency/article/003215.htm cyanosis </a>, indicates the presence of
-    deoxygenated hemoglobin in the blood, demanding immediate attention during surgery.</p>
+    <p>It was well known that accurate/authentic, color in surgical imaging is critical because it
+    allows surgeons to assess tissue oxygenation and viability, which directly impacts patient safety and surgical
+    outcomes. <!-- For example, the appearance of a bluish hue, known as cyanosis, indicates the presence of
+    deoxygenated hemoglobin in the blood, demanding immediate attention during surgery.</p> -->
+    What I did for this project is to explore the speciality of surgical imaging and link it to clinical needs of surgeons.
 
     <p>
-    However, it was not well known that the intra-operative imaging of live soft tissues has its own characteristics compared to everyday life imaging of
-    solid objects. That is the translucent soft tissues allows some light to pass through and scatters the other as well.</p>
+    First, the intra-operative imaging of live soft tissues has its own characteristics compared to everyday life
+    imaging of solid objects. That is the translucent soft tissues allows some light to pass through and scatters
+    the other as well.  This means that surgical imaging is a volumetric imaging of layers including shallow blood
+    vessels below the surface. As a form of ballastic imaging, the Red, Green and Blue light behavied differently when imaging live soft tissue:
+    1) Long-wavelenth (around 630nm) Red light has the least scattering and longest penetrating depth, 2)
+    Medium-wavelength (around 530nm) Green light has medium scattering and penetration depth.
 
     <p>
-    This means that surgical imaging is a volumetric imaging of layers including shallow blood vessels just below the surface. As a form of ballastic imaging,
-    the Red, Green and Blue light behavied differently when imaging live soft tissue. Red light has the longest wave-lenght, suggesting it has the least scattering with the longest penetrating depth,
-    while Green light has a medium wavelenth, hence medium scattering with a medium penetration depth. Finally, Blue light has the shortes wavelenght, hence the highest
-    scattering and the shortest penetration depth.</p>
-
-    <p>
-    Surgeons pay special attentions to medically meaningful structures like blood vessels. Green light is strongly absorbed by red blood vessels
-    because hemoglobin in blood strongly absorbs wavelengths in the green spectrum. This absorption creates a high contrast where blood vessels appear dark
-    against the surrounding tissue, which reflects or scatters less green light. On the other hand, red light gets both reflected and scattered by blood
-    vessels and surrounding tissues, leading to lower contrast between vessels and their surroundings in images.
+    Second, surgeons pay special attentions to medically meaningful structures like blood vessels. Though below-surface
+    blood vessels can be picked up by red and green lights, they behave differently. Green light is strongly absorbed by
+    red blood vessels because hemoglobin in blood strongly absorbs wavelengths in the green spectrum. This absorption
+    creates a high contrast where blood vessels appear dark against the surrounding tissue, which reflects or scatters
+    less green light. On the other hand, red light gets both reflected and scattered by blood
+    vessels and surrounding tissues, leading to images with less contrast.
     </p>
 
     <p>
-    Finally, the best spectrum for intro-op surigcal imaging is the Green light, with the best combination of penetration depth and image quality (contrast).
-    By applying appropriate techniques, we demonstrate the ability to enhance image quality while faithfully preserving accurate color representation.
-    It is worth noting that the following simple static image comparison does not fully capture the extent of the improvement. When I demonstrated this live
-    with daVinci's stereoscopic video & display to internal stakeholders and the executive team, the response was overwhelmingly positive, with feedback such
-    as: "You can see the layers of blood vessels like a 3D network of bridges."
+    As a result, the best spectrum for intro-op surigcal imaging is the Green light, with the best combination of
+    penetration depth and image quality (contrast). By applying appropriate techniques, we demonstrated the ability to
+    enhance image quality while faithfully preserving accurate color representation. It is worth noting that the following
+    simple static image comparison does not fully capture the extent of the improvement. When I demonstrated this live
+    with daVinci's stereoscopic video & display to internal stakeholders and the executive team, the response was
+    overwhelmingly positive, with feedback such as: "You can see the layers of blood vessels like a 3D network of bridges."
     </p>
     <div class="image-grid">
       <figure>
@@ -80,9 +97,9 @@
 
     <!-- Single-chip Multi-function Imaging -->
     <h2>Single-chip multi-function imaging - CFA Design and Demosaicing for Surgical & Firefly imaging</h2>
-    <p>Based on the above effort of improving surgical video using the Green-light, and the fact that a white cell (not masking out visible spectrum)
-      can increase the sensor sensivity under low-light condition, I proposed 4-Color CFAs to increased dynamic range and enhance the contrast
-      of critical strucures like blood vessels.
+    <p>Based on the above effort of improving surgical video using the Green-light, and the fact that a white cell
+      (not masking out visible spectrum) can increase the sensor sensivity under low-light condition, I proposed
+      4-Color CFAs to increased dynamic range and enhance the contrast of critical strucures like blood vessels.
     </p>
       <div class="image-grid">
         <figure>
@@ -115,9 +132,8 @@
     <!-- High-speed Sequential Imaging -->
     <h2>High-speed Sequential Imaging - Easies for multi-function at full resolution</h2>
     <p>I built a prototype sequential imaging system and brought it to labs for experimentation and collecting data.  The feedback from our clinical team is
-    quite positive. The system consists of a high-speed Dalsa camera with a mono sensor that only blocks out non-visible spectum for maximal
-    sensitivity, and a synchronous sequential illumination provided by a Lumencor Light engine. The following mono video of 1k by 1k was captured in a lab
-    at 180hz, while the full-resoluion color video at 60hz was a result of off-line processing.</p>
+    quite positive. The system consists of a high-speed Dalsa camera with a mono sensor, and a synchronous sequential illumination provided by a Lumencor Light
+    engine. The following mono video of 1k by 1k was captured in a lab at 180hz, while the full-resoluion color video at 60hz was a result of off-line processing.</p>
     <div class="image-grid">
       <figure>
         <iframe
@@ -133,16 +149,6 @@
         allow="autoplay">
       </iframe>
         <figcaption>60hz color surgical video after processing of the lab video</figcaption>
-      </figure>
-    </div>
-
-    <!-- The Evaluation Pipeline  -->
-    <h2>The Evaluation Pipeline</h2>
-    <div class="image-grid">
-      <figure>
-        <img src="images/SurgicalVideo_EvaulationPipeline.jpg" alt="Evaluation Pipeline">
-        <figcaption>Evaulation pipeline with surgeons as the evaulators. Reference video was captured in Labs and video synthesis and processing could happen
-          off-line.</figcaption>
       </figure>
     </div>
 
