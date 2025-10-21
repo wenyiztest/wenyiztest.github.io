@@ -194,11 +194,22 @@ footer {
   box-sizing: border-box;
 }
 
+/* Using the figcaption CSS above ensures captions look tidy, are centered, and spaced
+correctly beneath each image — no overflow or layout issues.
+*/
+.image-grid figcaption {
+  text-align: center;    /* Center caption below image */
+  margin-top: 0.5em;     /* Spacing from image */
+  font-size: 0.95em;     /* Slightly smaller font */
+  color: #555;           /* Optional: muted color */
+  word-break: break-word;/* Prevent overflow */
+}
 
 /* Ensures consistent width for all images */
 .image-grid img {
   width: 100%;       /* Make image's width fill its container */
   height: auto;
+  max-width: 100%; /* Never exceed container width */
   display: block;   /* Remove whitespace below images */
 }
 

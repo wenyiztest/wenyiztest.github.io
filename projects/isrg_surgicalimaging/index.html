@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surgical Imaging Miniaturization</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/SCANADU_scout_indiegogo.jpg" alt="Smart Helmet Photo" width="220" heigh="auto">
+    <div>
+    <h1>What is Surgical Imaging Miniaturization</h1>
+    <p>From 1980s to 1990s, typical video endoscopy consists of a stainless shaft with rigid rod lens inside, coupled with a
+      camera head with CCD sensors that provide high-quality images. By the late 1990s the CMOS revolution was on its way into
+      consumer market, with smaller sensor size, lower power consumption and integration advantage.</p>
+
+      <p>
+      By early 2000s, the image quality of CMOS sensor has been singificantly improved to a point, making it possible to replace the bulky
+      CCD sensors and hosuings, especially when you need two CCD sensors in a daVinci surgical robot. I was very fortunate at
+      that time, witnissing the CMOS revolution and leading relevant Applied Research efforts at Intuitive Surgical: 1)
+      Spectrum-selected surgical imaging, 2) Single-chip multi-function imaging including Firefly imaging with ICG,
+      and 3) High-speed sequential multi-function imaging. These efforts involved researching ideas, building prototypes, showing live
+      demos to stakeholders and executives, and filing patents.</p>
+
+      <p>
+      To effectively evalute any design and algorithms proposed, I built a pipeline to simulate proposed hardware and evaluate
+      algorithms on real surgical videos by surgeons: 1)reference surgical videos were captured in labs by a capture system I built based on RAID (redudant
+      array of independent disks) to handle real-time (60fps), dual channel (stero), high-quality (1080p) videos, 2) Synthesize video based
+      on proposed hardware, for example, different CFA design, 3) Apply algorithms to process synthesized video off-line, 4) Pipe the processed
+      videos and original video in real-time to a daVinci console for surgeons to view and compare.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Spectrum-selected surgical Imaging -->
+    <h2>Spectrum-selected Surgical Imaging - translucent soft tissue</h2>
+    <p>It was well known that to creat a proper color image of a scene, a image sensor collects three spectrums, Red (centered around 630nm), Green (centered around
+    530) and Blue (460nm).  It was also known that accurate/authentic, color in surgical imaging is critical because it
+    allows surgeons to assess tissue oxygenation and viability, which directly impacts patient safety and surgical outcomes.
+    For example, the appearance of a bluish hue, known as <a href: https://medlineplus.gov/ency/article/003215.htm cyanosis </a>, indicates the presence of
+    deoxygenated hemoglobin in the blood, demanding immediate attention during surgery.</p>
+
+    <p>
+    However, it was not well known that the intra-operative imaging of live soft tissues has its own characteristics compared to everyday life imaging of
+    solid objects. That is the translucent soft tissues allows some light to pass through and scatters the other as well.</p>
+
+    <p>
+    This means that surgical imaging is a volumetric imaging of layers including shallow blood vessels just below the surface. As a form of ballastic imaging,
+    the Red, Green and Blue light behavied differently when imaging live soft tissue. Red light has the longest wave-lenght, suggesting it has the least scattering with the longest penetrating depth,
+    while Green light has a medium wavelenth, hence medium scattering with a medium penetration depth. Finally, Blue light has the shortes wavelenght, hence the highest
+    scattering and the shortest penetration depth.</p>
+
+    <p>
+    Surgeons pay special attentions to medically meaningful structures like blood vessels. Green light is strongly absorbed by red blood vessels
+    because hemoglobin in blood strongly absorbs wavelengths in the green spectrum. This absorption creates a high contrast where blood vessels appear dark
+    against the surrounding tissue, which reflects or scatters less green light. On the other hand, red light gets both reflected and scattered by blood
+    vessels and surrounding tissues, leading to lower contrast between vessels and their surroundings in images.
+    </p>
+
+    <p>
+    Finally, the best spectrum for intro-op surigcal imaging is the Green light, with the best combination of penetration depth and image quality (contrast).
+    By applying appropriate techniques, we demonstrate the ability to enhance image quality while faithfully preserving accurate color representation.
+    It is worth noting that the following simple static image comparison does not fully capture the extent of the improvement. When I demonstrated this live
+    with daVinci's stereoscopic video & display to internal stakeholders and the executive team, the response was overwhelmingly positive, with feedback such
+    as: "You can see the layers of blood vessels like a 3D network of bridges."
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/Tissue_SurgicalImage_Original.jpg" alt="Original Surgical Image">
+        <figcaption>Original Surgical Image</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/Tissue_SurgicalImage_GreenEhnanced.jpg" alt="Enhanced Surgical Image">
+        <figcaption>Enhanced Surgical Image</figcaption>
+      </figure>
+    </div>
+
+    <!-- Single-chip Multi-function Imaging -->
+    <h2>Single-chip multi-function imaging - CFA Design and Demosaicing for Surgical & Firefly imaging</h2>
+    <p>Based on the above effort of improving surgical video using the Green-light, and the fact that a white cell (not masking out visible spectrum)
+      can increase the sensor sensivity under low-light condition, I proposed 4-Color CFAs to increased dynamic range and enhance the contrast
+      of critical strucures like blood vessels.
+    </p>
+      <div class="image-grid">
+        <figure>
+          <img src="images/SurgicalVideo_CFA_Design_2010.jpg" alt="New CFA Design for Improved Surgical Video">
+          <figcaption>Surgical CFA Design to increate dynamic range and image contrast</figcaption>
+        </figure>
+        </div>
+
+      <p>We also proposed Firefly Lite Imaging based on single chip with the standard Bayer CFA design. The idea is to expand the imaging model
+         to include additional NIR illumination and then apply simple algebric operations to obtain the Green and NIR (ICG) components. Another approach
+         for multi-functional imaging, especially high-quality, high resolution image including Firefly imaging is through high-speed sequential imaging.
+      </p>
+      <div class="image-grid">
+        <figure>
+          <img src="images/ImagingModel_NIRIllumination.png" alt="Imaging Model Including a NIR Illumination">
+          <figcaption>Imaging Model Including NIR Illumination L<sub>N</sub> and NIR Reflectance R<sub>N</sub> </figcaption>
+        </figure>
+        <figure>
+          <img src="images/ImagingModel_FireFlyLite.png" alt="Firefly Lite Imaging Model">
+          <figcaption>Firefly Lite Imaging Model where NIR contribute towards Red and Green cells of a Bayer CFA</figcaption>
+        </figure>
+        <figure>
+          <img src="images/FireFlyLite_SeparateNIRFromGreen.png" alt="Separate NIR from Green">
+          <figcaption>Separation of NIR and Green Images via setting up propoer scale factors s_<sub>1</sub> and  s_<sub>2</sub> based on the calibration parameters a<sub>21</sub>, a<sub>11</sub>,
+            a<sub>23</sub>, and a<sub>13</sub>.</figcaption>
+        </figure>
+        </div>
+
+
+    <!-- High-speed Sequential Imaging -->
+    <h2>High-speed Sequential Imaging - Easies for multi-function at full resolution</h2>
+    <p>I built a prototype sequential imaging system and brought it to labs for experimentation and collecting data.  The feedback from our clinical team is
+    quite positive. The system consists of a high-speed Dalsa camera with a mono sensor that only blocks out non-visible spectum for maximal
+    sensitivity, and a synchronous sequential illumination provided by a Lumencor Light engine. The following mono video of 1k by 1k was captured in a lab
+    at 180hz, while the full-resoluion color video at 60hz was a result of off-line processing.</p>
+    <div class="image-grid">
+      <figure>
+        <iframe
+        src="https://drive.google.com/file/d/1fvKhK7egdwI0HuFQAlN20ULwM1wJPiqt/preview"
+        allow="autoplay">
+      </iframe>
+        <figcaption>180hz mono surgical video captured in a lab with sequential RGB illuminations</figcaption>
+      </figure>
+
+      <figure>
+        <iframe
+        src="https://drive.google.com/file/d/1n-bDdnooDiJFp6b-n4L1TsaXedvIassG/preview"
+        allow="autoplay">
+      </iframe>
+        <figcaption>60hz color surgical video after processing of the lab video</figcaption>
+      </figure>
+    </div>
+
+    <!-- The Evaluation Pipeline  -->
+    <h2>The Evaluation Pipeline</h2>
+    <div class="image-grid">
+      <figure>
+        <img src="images/SurgicalVideo_EvaulationPipeline.jpg" alt="Evaluation Pipeline">
+        <figcaption>Evaulation pipeline with surgeons as the evaulators. Reference video was captured in Labs and video synthesis and processing could happen
+          off-line.</figcaption>
+      </figure>
+    </div>
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Surgical Imaging Miniaturization</p>
+  </footer>
+</body>
+</html>
+
