@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Tracking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/daVinciRobotSystem.jpeg" alt="daVinci Robotic System" width="220" height="auto">
+    <div>
+    <h1>What is Tool Tracking - Sensor Fusion of Vision and Kinematics</h1>
+    <p>Tool tracking is about real-time locating precisely where are the surgical instruments in the surgical field during surgery.
+      It is an old topic, even back then, for surgical robotics with many potential applications such as collision avoidance when
+      instruments are not within the field of view or hidden beneath the tissues. If accurate enough, it could even become
+      a handy measurement tool.
+    </p>
+
+    <p>For surgical robotics application, tool tracking presented both a challenge and an opportunity. The challenge is to reliablly
+      locate the instrument with good accuracy in a complex and dynamic surgical field. The opportunity is the availability of
+      the precise robotic kinematics that could be biased. Hence, an efficient sensor fusion mechanism like extended Kalman Filter
+      can be applied to correct the kinematics biases in real-time based on vision observation. The vision observation is 3D location of the tracked
+      instrument based on matching its left and right views and the endoscopic stereo camera calibration.
+    </div>
+  </header>
+
+  <main>
+    <!-- The System Evaluation Approach  -->
+    <h2>System Evaulation - Performance Evaluation and Clinical Labs</h2>
+    <p>One big challenge to push technology advancement into medicine, including surgery, is to prove that the proposed technology is 1) firstly safe, and
+      2) secondly, effective for the proposed objectives.</p>
+
+    <p>For tool tracking development, even just a technical development, we went through objective evaulation of its performance with dry labs
+    and clinical labs with surgeons. For the objective performance evaluation in real-time, we built an efficient pipeline with NDI's 6-DOF optical
+    tracker sevring as the ground-truth tracker.
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/TT_Eval_SystemApproach.jpg" alt="TT System Evaluation Approach">
+        <figcaption>Tool tracking system evaluation includes both objective performance evaluation and clinical labs.</figcaption>
+      </figure>
+
+            <figure>
+        <img src="images/TT_Eval_ObjectiveDryLab.jpg" alt="TT Objective Evaluation">
+        <figcaption>Tool tracking object evaluation of performance in real-time with NDI's optical tracker.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Tool Tracking Enabled Potential Applications -->
+    <h2>Tool Tracking - Potential Applications </h2>
+    <p>As mentioned, tool tracking (TT) has many potential applications. Please note potential applications wont become actual until FDA approval.
+      In this project, we focused on technical capability in realistic surgical environment, but not meant for FDA submission.
+      The following image shows an interesting potential application as measurement tool.
+    </p>
+
+    <div class="image-grid">
+      <figure>
+        <img src="TT_VirtualCursorMeasurementTool.jpg" alt="TT-Enabled Virtual Cursor for Measurement">
+        <figcaption>Technical Demo for TT-Enabled Virtual Cursor for Measurement (Not meant for FDA submission)</figcaption>
+      </figure>
+    </div>
+
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Surgical Imaging Miniaturization</p>
+  </footer>
+</body>
+</html>
+
