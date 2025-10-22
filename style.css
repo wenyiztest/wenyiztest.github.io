@@ -226,3 +226,41 @@ correctly beneath each image — no overflow or layout issues.
     flex: 0 1 100%;
   }
 }
+
+/* a clean, responsive image/text row */
+.image_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;           /* Add some space between image and text */
+  flex-wrap: wrap;    /* Allow stacking on small screens */
+}
+
+.image_text img {
+  width: 300px;       /* Or max-width: 300px; */
+  height: auto;
+  display: block;
+  margin: 0;          /* No float needed */
+}
+
+.image_text .text {
+  padding-left: 20px;
+  padding-top: 0;
+  margin: 0;
+  max-width: 500px;   /* Optional - limit text width */
+}
+
+@media (max-width: 600px) {
+  .image_text {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .image_text img {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .image_text .text {
+    padding-left: 0;
+    max-width: 100%;
+  }
+}
