@@ -6,6 +6,28 @@
   <title>Surgical Imaging Miniaturization</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+<style>
+  .image_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 25%;
+    max-height:15%;
+    float: left;
+  }
+
+  .text {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 20%;
+    float: left;
+  }
+  </style>
+
 <body>
   <header>
     <img src="images/daVinciRobotSystem.jpeg" alt="daVinci Robotic System" width="220" height="auto">
@@ -15,14 +37,19 @@
       camera head with CCD sensors that provide high-quality images. By the late 1990s the CMOS revolution was on its way into
       consumer market, with smaller sensor size, lower power consumption and integration advantage.</p>
 
-      <p>
-      By early 2000s, the image quality of CMOS sensor has been singificantly improved to a point, making it possible to replace the bulky
-      CCD sensors and hosuings, especially when you need two CCD sensors in a daVinci surgical robot.
-      <img src="images/ComputationalSurgicalImaging.jpg" alt="ComputationSurgicalImaging", width="500", height="auto">
-      I was very fortunate at that time, witnessing the CMOS revolution, the rise of computational imaging, and leading relevant Applied Research efforts at
-      Intuitive Surgical: 1) Spectrum-selected surgical imaging, 2) Single-chip multi-function imaging including Firefly imaging with ICG,
-      and 3) High-speed sequential multi-function imaging. These efforts involved researching ideas, building prototypes, working with surgeons,
-      showing live demos to stakeholders and executives to help make business decisions, and filing patents.</p>
+      <div class="image_text">
+        <div class="image">
+          <img src="images/ComputationalSurgicalImaging.jpg" alt="ComputationSurgicalImaging">
+        </div>
+        <div class="text">
+          By early 2000s, the image quality of CMOS sensor has been singificantly improved to a point, making it possible to replace the bulky
+          CCD sensors and hosuings, especially when you need two CCD sensors in a daVinci surgical robot.
+          I was very fortunate at that time, witnessing the CMOS revolution, the rise of computational imaging, and leading relevant Applied Research efforts at
+          Intuitive Surgical: 1) Spectrum-selected surgical imaging, 2) Single-chip multi-function imaging including Firefly imaging with ICG,
+          and 3) High-speed sequential multi-function imaging. These efforts involved researching ideas, building prototypes, working with surgeons,
+          showing live demos to stakeholders and executives to help make business decisions, and filing patents.
+        </div>
+      </div>
     </div>
   </header>
 
