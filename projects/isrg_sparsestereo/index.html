@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sparse Stereo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/daVinciRobotSystem.jpeg" alt="daVinci Robotic System" width="220" height="auto">
+    <div>
+    <h1>What is Sparse Stereo - Why and How</h1>
+    <div class="image_text">
+      <img src="images/daVinci_FullDepthSensing.jpg" width="150" alt="davinci Full Stereo">
+      <div class="text">
+        Every computer vision research knew the classic problem of estimating depth via matching the left and right
+        images of the scene in the field of view.
+        It was interesting because it was not a solved problem in many applications where plenty changes exist such as occlusion,
+        shinning surface, smooth surface in the scene. So it was quite a accomplishment that we were able to brought a working stereo
+        to clinical labs for surgeons to try it out. The stereo ran at 1-5 fps based on a NVIDIA Geoforce GPU (early days of GPU for AI).
+        As you can see from picture here, the full-resolution result was quite solid.
+      </div>
+    </div>
+
+    <p>Then I heard something that shocked me from the physician who was using the system: "This is cool. What do I do
+      with the stereo or depth info, Wenyi?" An exceptional surgeon, she was at the forefront of her field, dedicated
+      to teaching surgeon fellows and collaborating with engineers like me to push the boundaries of surgical robotics.
+      This was the beginning of me always asking why before digging into how!
+    </p>
+
+    <p>Further collaborations with surgeons resulted in a real application that I will describe later.
+      From a technical point of view, it boils down to robust stereo matching of surgical field (tissue) at
+      selected points or regions of interest to surgeos. In other words, robust sparse stereo is a desired
+      foundation technique. Without getting into all the details, it is suffice to say that we had a robust
+      solution that was tested in clinical labs even when the selected points/regions are featureless.
+    </p>
+  </div>
+  </header>
+
+  <main>
+    <!-- 3D Telestration Motivating Sparse Stereo  -->
+    <h2>Clinical Motivation - 3D Telestration</h2>
+    <p>The clincal motivation for sparse stereo comes from 3D telestration. Telestration is a must-have tool
+      when a master surgeon to train a surgeon fellow live in surgery. The master surgeon could be remote,
+      sitting in front of a computer, watching the video feed of the surgical field operated by the surgeon
+      fellow. Often the master surgeon would draw an arrow on top of a point of interest, on the 2D screen, to
+      ask the surgeon fellow to cut tissue, for example. Interestingly, the surgeon fellow is seeing a 3D view of
+      the surgical field, rather then the 2D view (say, right view) for the master surgeon. To properly
+      display the point of interest to daVinci robot's 3D surgeon console, we need to locate the corresponding
+      point on the left view, a classical sparse stereo problem.
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/daVinci_3DTelestration.jpg" alt="daVinci 3D Telestration not for FDA submission">
+        <figcaption>How 3D Telestration works on daVinci (Prototpye not for FDA submission).</figcaption>
+      </figure>
+   </div>
+
+    <!-- Other Applications of Sparse Sterep -->
+    <h2>Sparse Stereo - Potential Applications </h2>
+    <p>There are several potential applications for robust sparse stereo. For examle, automating optimal
+      vision setting was a big deal. This was early 2000's when a stereoscopic endoscope still consisted of a CCD camera head
+      coupled with the scope. It produced video with great image quality, but its depth of camera was quite limited.
+      As a result, manual camera focus was often required once you moved the camera too far or too close for good
+      reasons.
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/SparseDepth_CameraAutoFocus.jpg" alt="Sparse Stereo Enabled Camera Auto Focus">
+        <figcaption>Sparse Stereo Enabled Camera Auto Focus</figcaption>
+      </figure>
+    </div>
+
+    <p>One interesting application is that sparse stereo could enable a surgical robot for micro-surgery
+      from the perception point of view. The key characteristics of a micro-surgery is that its working distance
+      (<2cm) is much shorter than the normal robotic surgery (5 to 20cm). So when you piped the left camera
+      video and the right camera video into the surgeon console, you would not see the stereo display properly.
+      With robust sparse stereo, we could shift the left and right view, based on the working distance,
+      before piping the videos into the surgeon console for 3D display. Such a 3D display would not be perfect since
+      camera view change was not equal to simple shifts in the left and right view. However, surgeons typically
+      did not care if it was a imperfect solution as long as it worked for them.
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/SparseDepth_MicroSurgeryDisplay.jpg" alt="Sparse Stereo Enabled MicroSurgery Display">
+        <figcaption>Sparse Stereo Enabled Display for MicroSurgery (not meant for FDA submission)</figcaption>
+      </figure>
+    </div>
+
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Sparse Stereo</p>
+  </footer>
+</body>
+</html>
+
