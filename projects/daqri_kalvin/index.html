@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalvin - Visual-Inertia Calibration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/DAQRI_SmartHelmet.jpg" alt="Smart Helmet Photo" width="80" height="auto">
+    <img src="images/DAQRI_SmartGlasses.jpg" alt="Smart Glasses Photo" width="90" height="auto">
+    <div>
+    <h1>What is Kalvin</h1>
+    <p>KalVin is an automatic calibration system that consists of calibration setup (robot, calibration targets, fixtures, calibration station) and
+      software package that accepts IMU and video data and outputs calibration parameters for DAQRI Smart Helmet and Smart Glasses.
+    </div>
+    </p>
+  </header>
+
+  <main>
+    <!-- 1️⃣ Calibration Setup -->
+    <h2>Kalvin Hardware Setup</h2>
+    <p>This setup consists of two major parts supporting the calibration of the smart helmet or smart glasses: 1) inside a robot cell with safety system, we have a kuka robot, calibration targets, fixtures, and 2) robot controller and calibration station outside the cell.</p>
+    <img src="images/kalvin_calibration_setup.png" alt="Calibration Setup" width="600" heigh="auto">
+    <img src="images/kalvin_calibration_setup_picture.jpg" alt="Calibration Setup Picture" width="600" heigh="auto">
+
+    <!-- 2️⃣ Workflow -->
+    <h2>Kalvin Software Workflow</h2>
+    <div class="workflow">
+      <p>The calibration includes two major apps: 1) run DataCaptureApp to capture data while driving the AR headsets looking at calibration targets,
+        2) run CalibrationProcessAppp to calibrate the joint calibration of IMU, cameras, and AR display. It also upload results (and data if needed) to cloud for easy access. </p>
+      <img src="images/kalvin_calibration_SW_workflow.png" alt="Calibration Software Workflow Diagram" width="600" heigh="auto">
+    </div>
+
+    <!-- 1️⃣ Calibration Simulation -->
+      <h2>Kalvin in Simulation</h2>
+      <p>To speed up the development of the 'optimal' kuka trajectories for effective calibraton that is 1) safe, 2) fast, and 2) accurate, we actually built the simulation.</p>
+      <figcaption>KalVin in Simulation</figcaption>
+      <iframe
+        src="https://drive.google.com/file/d/1gJFbR_PPCl-aLnnzHr9YXmS_mi7y7Gk2/preview"
+        allow="autoplay">
+      </iframe>
+
+    <!-- 3️⃣ Demo Videos -->
+    <h2>Demonstration Video of Early Kalvin</h2>
+    <p>This is a video demonstrating automatic data capture of all the sensors and displays for joint calibration:
+      the world camera, the analog IMU, and the two eye cameras (attached the fixture to calibrate left and right display).
+    </p>
+      <figcaption>KalVin in Action</figcaption>
+      <iframe
+        src="https://drive.google.com/file/d/16P-xDQ5DWSL6976H3ip7Kj3UBGRtK6RV/preview"
+        allow="autoplay">
+      </iframe>
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: KalVin</p>
+  </footer>
+</body>
+</html>
+

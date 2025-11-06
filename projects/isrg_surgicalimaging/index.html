@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computationl Surgical Imaging</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <img src="images/daVinciRobotSystem.jpeg" alt="daVinci Robotic System" width="180" height="auto">
+    <div>
+    <h1>What is Computational Surgical Imaging</h1>
+    <p>From 1980s to 1990s, typical video endoscopy consists of a stainless shaft with rigid rod lens inside, coupled with a
+      camera head with CCD sensors that provide high-quality images. By the late 1990s the CMOS revolution was on its way into
+      consumer market, with smaller sensor size, lower power consumption and integration advantage.</p>
+
+    <div class="image_text">
+      <img src="images/ComputationalSurgicalImaging.jpg" alt="ComputationSurgicalImaging">
+      <div class="text">
+        By early 2000s, the image quality of CMOS sensor has been singificantly improved to a point, making it possible to replace the bulky
+        CCD sensors and hosuings, especially when you need two CCD sensors in a daVinci surgical robot.
+        I was very fortunate at that time, witnessing the CMOS revolution, the rise of computational imaging, and leading relevant Applied Research efforts at
+        Intuitive Surgical: 1) Spectrum-selected surgical imaging, 2) Single-chip multi-function imaging including Firefly imaging with ICG,
+        and 3) High-speed sequential multi-function imaging. These efforts involved researching ideas, building prototypes, working with surgeons,
+        showing live demos to stakeholders and executives to help make business decisions, and filing patents.
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- The Evaluation Pipeline  -->
+    <h2>Building The Evaluation Pipeline - System Engineering</h2>
+    <p>Before I described a few efforts for this project, I wanted to mention this infrastructure effort that is
+    critical to make sure all efforts are succesful validated by surgeons. This is the start of my training on spot
+    for system engineering out of the need to bridge the huge gap between engineers and surgeons.</p>
+
+    <p>
+    To effectively evalute any design and algorithms proposed, I built a pipeline to simulate proposed hardware and evaluate
+    algorithms on real surgical videos by surgeons: 1)reference surgical videos were captured in labs by a capture
+    system I built based on a) Matrox Orion capture cards, and b) RAID (redudant array of independent disks), in order
+    to handle real-time (60fps), synchronous dual-channel (stereo-left and stereo-right), high-quality (1080p) videos,
+    2) Synthesize video based on proposed hardware, for example, different CFA designs, 3) Apply algorithms to process
+    huge-amount of synthesized video off-line, 4) Pipe the processed videos and original video in real-time to a
+    daVinci console for surgeons to view and compare.
+    </p>
+
+    <div class="image-grid">
+      <figure>
+        <img src="images/SurgicalVideo_EvaulationPipeline.jpg" alt="Evaluation Pipeline">
+        <figcaption>Evaulation pipeline with surgeons as the evaulators. Reference video was captured in Labs and video synthesis and processing could happen
+          off-line.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Spectrum-selected surgical Imaging -->
+    <h2>Spectrum-selected Surgical Imaging - Translucent Soft Tissue</h2>
+    <p>It was well known that accurate/authentic, color in surgical imaging is critical because it
+    allows surgeons to assess tissue oxygenation and viability, which directly impacts patient safety and surgical
+    outcomes. <!-- For example, the appearance of a bluish hue, known as cyanosis, indicates the presence of
+    deoxygenated hemoglobin in the blood, demanding immediate attention during surgery.</p> -->
+    What I did for this project is to explore the speciality of surgical imaging and link it to clinical needs of surgeons.
+
+    <p>
+    First, the intra-operative imaging of live soft tissues has its own characteristics compared to everyday life
+    imaging of solid objects. That is the translucent soft tissues allows some light to pass through and scatters
+    the other as well.  This means that surgical imaging is a volumetric imaging of layers including shallow blood
+    vessels below the surface. As a form of ballastic imaging, the Red, Green and Blue light behavied differently when imaging live soft tissue:
+    1) Long-wavelenth (around 630nm) Red light has the least scattering and longest penetrating depth, 2)
+    Medium-wavelength (around 530nm) Green light has medium scattering and penetration depth.
+
+    <p>
+    Second, surgeons pay special attentions to medically meaningful structures like blood vessels. Though below-surface
+    blood vessels can be picked up by red and green lights, they behave differently. Green light is strongly absorbed by
+    red blood vessels because hemoglobin in blood strongly absorbs wavelengths in the green spectrum. This absorption
+    creates a high contrast where blood vessels appear dark against the surrounding tissue, which reflects or scatters
+    less green light. On the other hand, red light gets both reflected and scattered by blood
+    vessels and surrounding tissues, leading to images with less contrast.
+    </p>
+
+    <p>
+    As a result, the best spectrum for intro-op surigcal imaging is the Green light, with the best combination of
+    penetration depth and image quality (contrast). By applying appropriate techniques, we demonstrated the ability to
+    enhance image quality while faithfully preserving accurate color representation. It is worth noting that the following
+    simple static image comparison does not fully capture the extent of the improvement. When I demonstrated this live
+    with daVinci's stereoscopic video & display to internal stakeholders and the executive team, the response was
+    overwhelmingly positive, with feedback such as: "You can see the layers of blood vessels like a 3D network of bridges."
+    </p>
+    <div class="image-grid">
+      <figure>
+        <img src="images/Tissue_SurgicalImage_Original.jpg" alt="Original Surgical Image">
+        <!--   <figcaption>Original Surgical Image</figcaption> -->
+      </figure>
+
+      <figure>
+        <img src="images/Tissue_SurgicalImage_GreenEnhanced.jpg" alt="Enhanced Surgical Image">
+        <!--  <figcaption>Enhanced Surgical Image</figcaption> --->
+      </figure>
+    </div>
+
+    <!-- Single-chip Multi-function Imaging -->
+    <h2>Single-chip multi-function imaging - CFA Design and Demosaicing for Surgical & Firefly imaging</h2>
+    <p>Based on the above effort of improving surgical video using the Green-light, and the fact that a white cell
+      (not masking out visible spectrum) can increase the sensor sensivity under low-light condition, I proposed
+      4-Color CFAs to increased dynamic range and enhance the contrast of critical strucures like blood vessels.
+    </p>
+      <div class="image-grid">
+        <figure>
+          <img src="images/SurgicalVideo_CFA_Design_2010.jpg" alt="New CFA Design for Improved Surgical Video">
+          <figcaption>Surgical CFA Design to increate dynamic range and image contrast</figcaption>
+        </figure>
+        </div>
+
+      <p>We also proposed Firefly Lite Imaging based on single chip with the standard Bayer CFA design. The idea is to expand the imaging model
+         to include additional NIR illumination and then apply simple algebric operations to obtain the Green and NIR (ICG) components. Another approach
+         for multi-functional imaging, especially high-quality, high resolution image including Firefly imaging is through high-speed sequential imaging.
+      </p>
+      <div class="image-grid">
+        <figure>
+          <img src="images/ImagingModel_NIRIllumination.jpg" alt="Imaging Model Including a NIR Illumination">
+          <figcaption>Imaging Model Including NIR Illumination L<sub>N</sub> and NIR Reflectance R<sub>N</sub> </figcaption>
+        </figure>
+        <figure>
+          <img src="images/ImagingModel_FireFlyLite.jpg" alt="Firefly Lite Imaging Model">
+          <figcaption>Firefly Lite Imaging Model where NIR contribute towards Red and Green cells of a Bayer CFA</figcaption>
+        </figure>
+        <figure>
+          <img src="images/FireFlyLite_SeparateNIRFromGreen.jpg" alt="Separate NIR from Green">
+          <figcaption>Separation of NIR and Green Images via setting up propoer scale factors s_<sub>1</sub> and  s_<sub>2</sub> based on the calibration parameters a<sub>21</sub>, a<sub>11</sub>,
+            a<sub>23</sub>, and a<sub>13</sub>.</figcaption>
+        </figure>
+        </div>
+
+
+    <!-- High-speed Sequential Imaging -->
+    <h2>High-speed Sequential Imaging - Multi-functional at Full Resolution</h2>
+    <p>I built a prototype sequential imaging system and brought it to labs for experimentation and collecting data.  The feedback from our clinical team is
+    quite positive. The system consists of a high-speed Dalsa camera with a mono sensor, and a synchronous sequential illumination provided by a Lumencor Light
+    engine. The following mono video of 1k by 1k was captured in a lab at 180hz, while the full-resoluion color video at 60hz was a result of off-line processing.</p>
+    <div class="image-grid">
+      <figure>
+        <iframe
+        src="https://drive.google.com/file/d/1fvKhK7egdwI0HuFQAlN20ULwM1wJPiqt/preview"
+        allow="autoplay">
+      </iframe>
+        <figcaption>180hz mono surgical video captured in a lab with sequential RGB illuminations</figcaption>
+      </figure>
+
+      <figure>
+        <iframe
+        src="https://drive.google.com/file/d/1n-bDdnooDiJFp6b-n4L1TsaXedvIassG/preview"
+        allow="autoplay">
+      </iframe>
+        <figcaption>60hz color surgical video after processing of the lab video</figcaption>
+      </figure>
+    </div>
+
+    <!-- 🔙 Back to main site -->
+    <div style="text-align: center;">
+      <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wenyi Zhao | Project: Computational Surgical Imaging</p>
+  </footer>
+</body>
+</html>
+
